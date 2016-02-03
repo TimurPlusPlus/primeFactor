@@ -61,15 +61,30 @@ void primeFactor(long num)
         if(isSimple[i])
             simple.push_back(i);
 
-
-  //  for(vector <long>::iterator it = simple.begin(); it != simple.end(); it++)
-  //      cout << *it << endl;
+    for(long i = 2; i <= num; i++)
+    {
+        //cout << i << "'s simple factors: " << endl;
+        long number = i;
+        for(vector <long>::iterator it = simple.begin(); *it <= num; )
+        {
+            if(number == 1) break;
+            if(number % (*it) == 0)
+            {
+       //         cout << (*it) << " ";
+                number /= (*it);
+            }
+            else
+                it++;
+        }
+       // cout << endl;
+       // cout << endl;
+    }
 
 }
 
 int main(int argc, char *argv[])
 {
 
-    primeFactor(10000000);
+    primeFactor(10000);
     return 0;
 }
